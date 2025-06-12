@@ -61,5 +61,25 @@
       <button type="submit">Giriş</button>
     </form>
   </div>
+<script>
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const email = form.querySelector("input[type='email']").value;
+    const password = form.querySelector("input[type='password']").value;
+
+    const savedEmail = localStorage.getItem("email");
+    const savedPassword = localStorage.getItem("password");
+
+    if (email === savedEmail && password === savedPassword) {
+      alert("Giriş başarılı! Hoş geldiniz.");
+      // İstersen buradan başka bir sayfaya yönlendirebilirsin
+    } else {
+      alert("E-posta veya şifre yanlış.");
+    }
+  });
+</script>
 </body>
 </html>
