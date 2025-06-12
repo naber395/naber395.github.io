@@ -6,6 +6,7 @@
 </head>
 <body>
   <h1 id="greeting"></h1>
+  <button onclick="logout()">Çıkış Yap</button>
 
   <script>
     const isLoggedIn = localStorage.getItem("isLoggedIn");
@@ -14,7 +15,13 @@
     if (isLoggedIn === "true") {
       document.getElementById("greeting").innerText = `Hoş geldin, ${username}!`;
     } else {
-      alert("Bu sayfayı görüntülemek için önce giriş yapmalısınız.");
+      alert("Bu sayfayı görmek için önce giriş yapmalısınız.");
+      window.location.href = "index.html";
+    }
+
+    function logout() {
+      localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("username");
       window.location.href = "index.html";
     }
   </script>
