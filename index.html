@@ -83,3 +83,27 @@
 </script>
 </body>
 </html>
+<script>
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const email = form.querySelector("input[type='email']").value;
+    const password = form.querySelector("input[type='password']").value;
+
+    const savedEmail = localStorage.getItem("email");
+    const savedPassword = localStorage.getItem("password");
+
+    if (email === savedEmail && password === savedPassword) {
+      // ✅ Giriş başarılı: Bilgileri sakla
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("username", email);
+
+      alert("Giriş başarılı! Hoş geldiniz.");
+      window.location.href = "welcome.html"; // Yeni bir sayfaya yönlendir
+    } else {
+      alert("E-posta veya şifre yanlış.");
+    }
+  });
+</script>
