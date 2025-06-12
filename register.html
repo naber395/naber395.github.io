@@ -71,3 +71,20 @@
   </div>
 </body>
 </html>
+<script>
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const email = form.querySelector("input[type='email']").value;
+    const password = form.querySelector("input[type='password']").value;
+
+    // localStorage'a kaydet
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
+
+    alert("Kayıt başarılı! Artık giriş yapabilirsiniz.");
+    window.location.href = "index.html"; // Giriş sayfasına yönlendir
+  });
+</script>
